@@ -7,13 +7,13 @@ import "truffle/DeployedAddresses.sol";
 import "../contracts/Adoption.sol";
 
 contract TestAdoption {
-    // The address of the adoption contract to be tested
+    // Адрес контракта adoption, который необходимо протестировать
     Adoption adoption = Adoption(DeployedAddresses.Adoption());
 
-    // The id of the pet that will be used for testing
+    // Идентификатор карточки животного, которое будет использоваться для тестирования
     uint256 expectedPetId = 8;
 
-    // Testing the adopt() function
+    // Тестирование функции adopt()
     function testUserCanAdoptPet() public {
         uint256 returnedId = adoption.adopt(expectedPetId);
 
@@ -24,7 +24,7 @@ contract TestAdoption {
         );
     }
 
-    // Testing retrieval of a single pet's owner
+    // Проверка владельца одного животного
     function testGetAdopterAddressByPetId() public {
         address adopter = adoption.adopters(expectedPetId);
 
@@ -35,7 +35,7 @@ contract TestAdoption {
         );
     }
 
-    // Testing retrieval of all pet owners
+    // Тест владельца всех животных
     function testGetAdopterAddressByPetIdInArray() public {
         // Store adopters in memory rather than contract's storage
         address[16] memory adopters = adoption.getAdopters();
