@@ -47,6 +47,6 @@ contract TestAdoption {
         );
     }
 
-    // The expected owner of adopted pet is this contract
+    // Предполагаемый владелец подтверждает контракт
     address expectedAdopter = address(this);
 }
